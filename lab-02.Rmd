@@ -115,28 +115,24 @@ Plastic waste per capita and coastal population seem to be more linearly associa
 
 ### Exercise 8
 
-Remove this text, and add your answer for Exercise 8 here.
-
 ```{r recreate-viz}
-# insert code here
+plastic_waste <- transform(
+  plastic_waste, coastal_pop_proportion= plastic_waste$coastal_pop/plastic_waste$total_pop
+)
 ```
 
-## Pro-Tips
+```{r graph it}
 
-### Excercise 3
-
-Try this :D
-
-ggplot(data = plastic_waste, 
-       mapping = aes(x = continent, 
-                     y = plastic_waste_per_cap)) +
-  geom_violin()+
-  geom_boxplot(width=.3, fill="green") +
-  stat_summary(fun.y=median, geom="point") 
+ggplot(plastic_waste[which(plastic_waste$plastic_waste_per_cap<3.5),],
+       mapping = aes(x = coastal_pop_proportion,
+                     y = plastic_waste_per_cap))+
+  geom_point(aes(color=continent))+
+  geom_smooth(color="#000000")+
+  scale_color_viridis(discrete=TRUE)+
   
-### Exercise 5 
+  labs(title = "Plastic waste vs. coastal population proportion", subtitle = "by continent")+
+  labs(x = "Coastal population proportion (Coastal/total population)", y = "Plastic waste per capita")
 
-Helpful reference:http://www.sthda.com/english/wiki/ggplot2-themes-and-background-colors-the-3-elements
-
+```
 
 
