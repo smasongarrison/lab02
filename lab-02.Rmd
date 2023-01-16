@@ -72,37 +72,46 @@ ggplot(data = plastic_waste,
   geom_violin()
 ```
 
-### Exercise 4
+### Exercise 4.1
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap,
+                     y = mismanaged_plastic_waste_per_cap)) +
+  geom_point()
 ```
-
-### Exercise 5
-
-Remove this text, and add your answer for Exercise 5 here.
+There seems to be a positive correlation between between plastic waste per capita and mismanaged waste per capita. 
 
 
+### Exercise 4.2
 
-### Exercise 6
-
-Remove this text, and add your answer for Exercise 6 here.
-
-```{r plastic-waste-mismanaged-continent}
-# insert code here
+```{r plastic-waste-mismanaged by continent}
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap,
+                     y = mismanaged_plastic_waste_per_cap, 
+                     color=continent))+
+  geom_point()
 ```
+It's somewhat hard to tell because most of the data points are confined to the same area, but it looks like some continents have steeper relationships between plastic waste per capita and mismanaged waste per capita. If I has to speculate, Europe has a less steep relationship and Africa has a more steep relationship. 
 
-### Exercise 7
 
-Remove this text, and add your answer for Exercise 7 here.
+### Exercise 4.3
 
-```{r plastic-waste-population-total}
-# insert code here
+```{r plastic-waste by total pop}
+ggplot(data = plastic_waste, 
+       mapping = aes(x = total_pop,
+                     y = plastic_waste_per_cap))+
+  geom_point()
 ```
-
-```{r plastic-waste-population-coastal}
-# insert code here
+```{r plastic-waste by coastalpop}
+ggplot(data = plastic_waste, 
+       mapping = aes(x = coastal_pop,
+                     y = plastic_waste_per_cap))+
+  geom_point()
 ```
+Plastic waste per capita and coastal population seem to be more linearly associated than plastic waste per capita and total population, but, again, it's difficult to tell just from these scatterplots. 
+
+
 
 ### Exercise 8
 

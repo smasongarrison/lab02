@@ -106,35 +106,66 @@ ggplot(data = plastic_waste,
 
 ![](lab-02_files/figure-gfm/violin%20plots-1.png)<!-- -->
 
-### Exercise 4
+### Exercise 4.1
 
 ``` r
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap,
+                     y = mismanaged_plastic_waste_per_cap)) +
+  geom_point()
 ```
 
-### Exercise 5
+    ## Warning: Removed 51 rows containing missing values (`geom_point()`).
 
-Remove this text, and add your answer for Exercise 5 here.
+![](lab-02_files/figure-gfm/plastic-waste-mismanaged-1.png)<!-- -->
+There seems to be a positive correlation between between plastic waste
+per capita and mismanaged waste per capita.
 
-### Exercise 6
-
-Remove this text, and add your answer for Exercise 6 here.
+### Exercise 4.2
 
 ``` r
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap,
+                     y = mismanaged_plastic_waste_per_cap, 
+                     color=continent))+
+  geom_point()
 ```
 
-### Exercise 7
+    ## Warning: Removed 51 rows containing missing values (`geom_point()`).
 
-Remove this text, and add your answer for Exercise 7 here.
+![](lab-02_files/figure-gfm/plastic-waste-mismanaged%20by%20continent-1.png)<!-- -->
+It’s somewhat hard to tell because most of the data points are confined
+to the same area, but it looks like some continents have steeper
+relationships between plastic waste per capita and mismanaged waste per
+capita. If I has to speculate, Europe has a less steep relationship and
+Africa has a more steep relationship.
+
+### Exercise 4.3
 
 ``` r
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = total_pop,
+                     y = plastic_waste_per_cap))+
+  geom_point()
 ```
 
+    ## Warning: Removed 61 rows containing missing values (`geom_point()`).
+
+![](lab-02_files/figure-gfm/plastic-waste%20by%20total%20pop-1.png)<!-- -->
+
 ``` r
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = coastal_pop,
+                     y = plastic_waste_per_cap))+
+  geom_point()
 ```
+
+    ## Warning: Removed 51 rows containing missing values (`geom_point()`).
+
+![](lab-02_files/figure-gfm/plastic-waste%20by%20coastalpop-1.png)<!-- -->
+Plastic waste per capita and coastal population seem to be more linearly
+associated than plastic waste per capita and total population, but,
+again, it’s difficult to tell just from these scatterplots.
 
 ### Exercise 8
 
