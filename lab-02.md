@@ -1,12 +1,14 @@
 Lab 02 - Plastic waste
 ================
-Insert your name here
-Insert date here
+Cat Seitz
+01/16/23
 
 ## Load packages and data
 
 ``` r
 library(tidyverse) 
+library(ggplot2)
+library(viridis)
 ```
 
 ``` r
@@ -167,25 +169,30 @@ Plastic waste per capita and coastal population seem to be more linearly
 associated than plastic waste per capita and total population, but,
 again, it’s difficult to tell just from these scatterplots.
 
-### Exercise 8
-
-Remove this text, and add your answer for Exercise 8 here.
+### Exercise recreate plot
 
 ``` r
-# insert code here
+plastic_waste <- transform(
+  plastic_waste, coastal_pop_proportion= plastic_waste$coastal_pop/plastic_waste$total_pop
+)
 ```
 
-## Pro-Tips
+``` r
+ggplot(plastic_waste[which(plastic_waste$plastic_waste_per_cap<3.5),],
+       mapping = aes(x = coastal_pop_proportion,
+                     y = plastic_waste_per_cap))+
+  geom_point(aes(color=continent))+
+  geom_smooth(color="#000000")+
+  scale_color_viridis(discrete=TRUE)+
+  
+  labs(title = "Plastic waste vs. coastal population proportion", subtitle = "by continent")+
+  labs(x = "Coastal population proportion (Coastal/total population)", y = "Plastic waste per capita")
+```
 
-### Excercise 3
+    ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 
-Try this :D
+    ## Warning: Removed 10 rows containing non-finite values (`stat_smooth()`).
 
-ggplot(data = plastic_waste, mapping = aes(x = continent, y =
-plastic_waste_per_cap)) + geom_violin()+ geom_boxplot(width=.3,
-fill=“green”) + stat_summary(fun.y=median, geom=“point”)
+    ## Warning: Removed 10 rows containing missing values (`geom_point()`).
 
-### Exercise 5
-
-Helpful
-reference:<http://www.sthda.com/english/wiki/ggplot2-themes-and-background-colors-the-3-elements>
+![](lab-02_files/figure-gfm/graph%20it-1.png)<!-- -->

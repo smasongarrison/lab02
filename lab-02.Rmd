@@ -2,7 +2,7 @@
 title: "Lab 02 - Plastic waste"
 author: "Cat Seitz"
 date: "01/16/23"
-output: html_document
+output: github_document
 ---
 
 ## Load packages and data
