@@ -9,6 +9,8 @@ output: html_document
 
 ```{r load-packages, message=FALSE}
 library(tidyverse) 
+library(ggplot2)
+library(viridis)
 ```
 
 ```{r load-data, message=FALSE}
