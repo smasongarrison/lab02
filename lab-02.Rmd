@@ -113,7 +113,7 @@ Plastic waste per capita and coastal population seem to be more linearly associa
 
 
 
-### Exercise 8
+### Exercise recreate plot
 
 ```{r recreate-viz}
 plastic_waste <- transform(
