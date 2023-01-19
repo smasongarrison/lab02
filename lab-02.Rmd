@@ -21,7 +21,6 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
 
 ```{r plastic-waste-continent}
 ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
@@ -31,6 +30,7 @@ ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
 plastic_waste %>%
   filter(plastic_waste_per_cap > 3.5)
 ```
+
 I wasn't expecting this result, but upon further investigation, I found that Trinidad and Tobago has inefficient waste management systems and the households don't segregate waste. 
 
 
@@ -44,7 +44,7 @@ ggplot(data = plastic_waste,
 
 ### Exercise 2.1
 
-```{r plastic-waste-density}
+```{r plastic-waste-density, warning=FALSE}
 
 ggplot(data = plastic_waste, 
        mapping = aes(x = plastic_waste_per_cap, 
@@ -52,6 +52,7 @@ ggplot(data = plastic_waste,
                      fill = continent)) +
   geom_histogram(alpha = 0.3)
 ```
+
 ### Exercise 2.2
 
 The color and fill are defined by the continent so the dataframe gets grouped that way instead of all of the continents grouped together, but alpha is a function of the entire graph. 
@@ -111,6 +112,7 @@ ggplot(data = plastic_waste,
                      y = plastic_waste_per_cap))+
   geom_point()
 ```
+
 Plastic waste per capita and coastal population seem to be more linearly associated than plastic waste per capita and total population, but, again, it's difficult to tell just from these scatterplots. 
 
 
